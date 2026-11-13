@@ -1,0 +1,2551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title>CFS-101 TRAINING GUIDE</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(6);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>CFS-101 TRAINING GUIDE</h1>
+<span id="author">NOTE: This tutorial uses the open source versions of cFE/cFS and OSAL available from https://sourceforge.net.</span><br />
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<hr />
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Welcome to the training guide for the CFS-101 self-guided tutorial. This tutorial is designed to show the steps for creating, building, and running a simple Core Flight System (cFS) -based software system. It is not designed to dive into a detailed explanation of the Core Flight Executive (cFE) framework or its included cFS applications. This is left to the documentations that are packaged with the cFS source code and information on the cFS website (<a href="https://cfs.gsfc.nasa.gov">cfs.gsfc.nasa.gov</a>).</p></div>
+<div class="paragraph"><p>By the end of this tutorial, you will be able to create, build, and run a simple cFS-based software system that can:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Be commanded from a ground system
+</p>
+</li>
+<li>
+<p>
+Provide input data to the flight system
+</p>
+</li>
+<li>
+<p>
+Publish and subscribe data to/from the rest of the system
+</p>
+</li>
+<li>
+<p>
+Process and monitor the data
+</p>
+</li>
+<li>
+<p>
+Downlink the flight data to a ground system
+</p>
+</li>
+</ul></div>
+<div class="sect2">
+<h3 id="_training_prerequisites">1.1. Training prerequisites</h3>
+<div class="paragraph"><p>To take this tutorial, you should know how to:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Program in C
+</p>
+</li>
+<li>
+<p>
+Use the Linux operating system (OS)
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_training_materials">1.2. Training materials</h3>
+<div class="paragraph"><p>This training guide is used with a virtual machine (VM) called <span class="green">CentOS-6.10-CFS-101</span>. Log in to the VM as <span class="green">"dev"</span> user with password <span class="green">"cfs101!!"</span>.</p></div>
+<div class="paragraph"><p>The development environment for this VM has been set up and configured with the appropriate system libraries, open-source version of the cFS software, and project workspace for the training.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content"><span class="red">Due to NASA IT policy,</span> <span class="green">dev</span> <span class="red">user is not set up as a superuser and the</span> <span class="green">root</span> <span class="red">password is not provided. This VM is meant to be used solely for the purpose of this training.</span></td>
+</tr></table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cfs_anatomy">2. cFS Anatomy</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>The cFS architecture looks like <a href="cfe.html">THIS</a> and <a href="cfs.html">THIS</a>.</p></div>
+<div class="paragraph"><p>This section describes the source code&#8217;s directory trees.</p></div>
+<div class="paragraph"><p>Either due to preferences or requirements, a cFS-based project can be set up differently from others in terms of where directories and files are located. Regardless of how the project is set up, the six top-level CFS directories must exist with their sub-directories and contents as pictured in the links below.</p></div>
+<div class="paragraph"><p>Note that it is not required for these top-level directories to be under the same parent directory. However, their sub-directories must be at least as shown in the pictures.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="cfe-dirs.html">cfe</a><br />
+This directory contains source code for the cFE layer (cFE). It is a set of mission-independent, re-usable, core software services, which includes the Executive Services (ES), the Event Services (EVS), the Software Bus Services (SB), the Table Services (TBL), the Time Services (TIME), and the File Services (FS). These services run as child threads on a non-real-time OS like Linux, and as tasks on a real-time OS such as VxWorks.
+</p>
+</li>
+<li>
+<p>
+<a href="osal-dirs.html">osal</a><br />
+This directory contains source code for the OS Abstraction Layer (OSAL). It provides a common set of Application Programmer Interfaces (APIs) at the OS level. Using the APIs, cFS applications can be coded as OS-independent, increasing portability between different platforms.
+</p>
+</li>
+<li>
+<p>
+<a href="psp-dirs.html">psp</a><br />
+This directory contains source code for the Platform Support Package (PSP) layer. Like the OSAL, it also provides a set of common APIs, but at the processor level.
+</p>
+</li>
+<li>
+<p>
+<a href="apps-dirs.html">apps</a><br />
+This directory contains source code for the cFS applications, including both re-use and mission-specific applications. Commonly referred to as "apps", these run as child threads on non-real-time OS like Linux, and as tasks on real-time OS such as VxWorks.
+</p>
+</li>
+<li>
+<p>
+<a href="cfs101-defs-dirs.html">cfs101_defs</a><br />
+This directory contains build configuration files for <code>cmake</code>.
+</p>
+</li>
+<li>
+<p>
+<a href="tools-dirs.html">tools</a><br />
+This directory contains source code for the supporting tools, including both re-use and mission-specific tools.<br />
+<br />
+Unlike the other sub-directories, there&#8217;s no requirement on how things are layed out in the <code>tools</code> directory. However, it is recommended that each tool has its own sub-directory. Some tools are provided as part of the cFS release.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>For the CFS-101 VM, all six top-level directories are located under the same parent directory in the workspace <code>/home/dev/Training_workspace/CFS-101</code>. Note that it is okay to use symbolic links for these directories if desired. The <code>CFS-101</code> and <code>osal</code> directories are set up that way for this training. Also keep in mind that this setup might not, and does not have to, work for all cFS-based projects. For example, one project might group them as core (cfe, osal, psp) vs. mission-specific (apps, build, tools) for the purpose of version control management.<br />
+<br />
+You should now traverse within the <code>/home/dev/Training_workspace/CFS-101</code> directory to get familiar with the file and sub-directory locations.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started_with_the_initial_flight_system">3. Getting Started With The Initial Flight System</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Let&#8217;s now walk through the steps to build and run a simple cFS-based system, starting with system descriptions.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content"><span class="black">If you want to reset the workspace to the intial state at any point in the tutorial, execute the following commands:</span><br />
+<br />
+<code>$ cd /home/dev/Training_workspace</code><br />
+<code>$ rm -rf CFS-101.initial</code><br />
+<code>$ tar zxvf ../Archives/CFS-101.initial.tar.gz</code><br />
+<code>$ rm CFS-101</code><br />
+<code>$ ln -s CFS-101.initial CFS-101</code></td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content"><span class="black">If you want to see the final workspace with all the updates, execute the following commands:</span><br />
+<br />
+<code>$ cd /home/dev/Training_workspace</code><br />
+<code>$ tar zxvf ../Archives/CFS-101.final.tar.gz</code><br />
+<code>$ rm CFS-101</code><br />
+<code>$ ln -s CFS-101.final CFS-101</code></td>
+</tr></table>
+</div>
+<div class="sect2">
+<h3 id="_system_components">3.1. System components</h3>
+<div class="paragraph"><p>This VM is setup for you to build a simple CFS-based system initially. The system will utilize the following components:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>cfe</code> &#8594; core services
+</p>
+</li>
+<li>
+<p>
+<code>osal</code> &#8594; OS abstraction layer providing common set of APIs
+</p>
+</li>
+<li>
+<p>
+<code>psp</code> &#8594; platform-specific
+</p>
+</li>
+<li>
+<p>
+<code>apps</code> &#8594; applications
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>sch</code> &#8594; sends out scheduled commands to other apps
+</p>
+</li>
+<li>
+<p>
+<code>ci</code> &#8594; receive commands from external sources
+</p>
+</li>
+<li>
+<p>
+<code>to</code> &#8594; send out telemetry to external sources
+</p>
+</li>
+<li>
+<p>
+<code>io_lib</code> &#8594; library used by the <code>CI</code> and <code>TO</code> applications
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<code>tools</code> &#8594; tools
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>gen_app_code</code> &#8594; script that generates code template for a cFS application
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<code>cFS-GroundSystem</code> &#8594; application that creates ground system displays and data connections
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_system_behaviors">3.2. System behaviors</h3>
+<div class="paragraph"><p>In general, a cFS-based system behaves as described below. Note that this is not the ONLY way a cFS-based system can be setup. This is just a more common setup.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+At startup, it loads, starts, and initializes its components, cFE core and cFS apps, as threads or tasks.
+</p>
+</li>
+<li>
+<p>
+If system startup is successful, all the components run according to their thread priority, as pre-defined in the <code>cfe_es_startup.scr</code> file.
+</p>
+</li>
+<li>
+<p>
+When the <code>SCH</code> application runs, it continuously sends out  <span class="green">Wake-Up</span> commands to the other applications using a pre-defined scheduling table.
+</p>
+</li>
+<li>
+<p>
+When a typical cFS application runs, it continuously listens for incoming commands. It does not do any "work" until it receives a <span class="green">Wake-Up</span> command. Only upon receiving a <span class="green">Wake-Up</span> command can an application get to run through its processing cycle (one processing cycle per <span class="green">Wake-Up</span> command).<br />
+<br />
+An application&#8217;s processing cycle consists of four parts:<br />
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Receiving &amp; processing commands<br />
+</p>
+</li>
+<li>
+<p>
+Receiving &amp; processing input data<br />
+</p>
+</li>
+<li>
+<p>
+Computing output data<br />
+</p>
+</li>
+<li>
+<p>
+Sending out output data
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+Non-typical cFS applications, like <code>SCH</code>, <code>CI</code>, and <code>TO</code>, are not scheduled. <code>SCH</code> is typically set up to run at the system&#8217;s minor frame rate; whereas <code>CI</code> and <code>TO</code> can be setup to run on a scheduled or pre-defined periodic rate, or both. Mission requirements should dictate how these applications be configured to run.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>For this tutorial, when you build and run your simple system initially, it doesn&#8217;t do much but responding to <span class="green">Send-Hk</span> command from the <code>SCH</code> application and <span class="green">No-Op</span> and <span class="green">Reset</span> commands from a ground system.</p></div>
+<div class="paragraph"><p>In later sections, you will be adding new applications to the system to make it do something more substantial.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_setting_the_build_environment_variables">3.3. Setting the build environment variables</h3>
+<div class="paragraph"><p>Being able to build cFS relies on setting your build environment variables correctly.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Open a new terminal to build and run cFS system (from here on it will be referred to as the <span class="teal">FSW Terminal</span>, where cFS is built and run from).
+</p>
+</li>
+<li>
+<p>
+Go to the project&#8217;s home directory for the tutorial:<br />
+<br />
+<code>$ cd /home/dev/Training_workspace/CFS-101</code>
+</p>
+</li>
+<li>
+<p>
+Set the environment variables for this terminal session by executing the following command:<br />
+<br />
+<code>$ source setvars.sh</code>
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>You can browse through the file, <code>setvars.sh</code>, and see how these build environment variables are defined. <a href="setvars-sample.html">HERE</a> is a sample of such a file.</p></div>
+<div class="paragraph"><p>The file has already been set properly for the tutorial, so it does not require modification. In general this file must be modified for a cFS-based project in order to reference the locations of its six top-level directories. This only needs to be done once per project.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_building_the_initial_flight_system">3.4. Building the initial flight system</h3>
+<div class="paragraph"><p>From the <span class="teal">FSW Terminal</span>, you should be at <code>/home/dev/Training_workspace/CFS-101</code> directory.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Build the initial flight system with the following commands (this build is for a Linux OS):<br />
+<br />
+<code>$ make prep</code><br />
+<code>$ make</code><br />
+<code>$ make install</code><br />
+</p>
+<div class="paragraph"><p>You should see build output similar to these:<br />
+<br />
+<a href="cmake-prep-output.html">make prep OUTPUT</a>,<br />
+<a href="cmake-output1.html">make OUTPUT</a>,<br />
+<a href="cmake-install-output1.html">make install OUTPUT</a></p></div>
+</li>
+</ol></div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_initial_flight_system">3.5. Running the initial flight system</h3>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Also from the <span class="teal">FSW Terminal</span>, go to the <code>exe</code> directory for the <code>cpu1</code> build:<br />
+<br />
+<code>$ cd /home/dev/Training_workspace/CFS-101/build/exe/cpu1</code>
+</p>
+</li>
+<li>
+<p>
+Take a look at the file <code>./cf/cfe_es_startup.scr</code>. It is the input data file for the system. It is used by the cFE ES to load and start up cFS libraries and applications. You can read the comments at the end of the file for more detail. <a href="startup-sample.html">HERE</a> is an example of such a file.<br />
+<br />
+Note what is included in the <code>cfe_es_startup.scr</code> for system run can be a subset of what is included in the <code>/home/dev/Training_workspace/CFS-101/cfs101_defs/targets.cmake</code> for the <code>cpu1</code> build (look for build variable <span class="green">TGT1_APPLIST</span>). There is nothing wrong with building more than what you want to run with cFS.
+</p>
+</li>
+<li>
+<p>
+Execute the following command to run the system:<br />
+<br />
+<code>$ ./core-cpu1</code>
+</p>
+<div class="paragraph"><p>You should see output similar to <a href="run-output1.html">THIS</a>.<br />
+<br />
+If an application is successfully loaded and initialized, there should be an output line acknowledging such for each cFS application/library entry in the <code>cfe_es_startup.scr</code> file.  See an <a href="run-output1-excerpt.html">EXCERPT</a> from a sample run output.<br />
+<br />
+After a successful system startup, it looks as though the system is not doing anything, but actually the <code>SCH</code> application is cycling through its scheduling table, sending out scheduled commands to other parts of the system. You will see evidence of data being updated when you go through the next section.</p></div>
+</li>
+<li>
+<p>
+To exit cFS, enter <code>&lt;CTRL-C&gt;</code>.<br />
+<br />
+You should see output similar to <a href="exit-output1.html">THIS</a>.
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect2">
+<h3 id="_interacting_with_the_initial_flight_system">3.6. Interacting with the initial flight system</h3>
+<div class="paragraph"><p>For training purposes let&#8217;s use the simple ground-system utilities that are included with the cFS release to interact with your newly built system. In this VM the ground system runs on the same computer as the flight system. In a real setup a ground system would run on a different computer that has some type of network connection to the flight computer.</p></div>
+<div class="sect3">
+<h4 id="_sending_commands_to_the_initial_flight_system">3.6.1. Sending commands to the initial flight system</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">FSW Terminal</span> exit and re-run the cFS executable that you built (i.e., <code>core-cpu1</code>).
+</p>
+</li>
+<li>
+<p>
+Open another terminal to run the Ground System displays (from here on it will be referred to as the <span class="teal">GSW Terminal</span>).
+</p>
+</li>
+<li>
+<p>
+Execute the following commands:<br />
+<br />
+<code>$ cd /home/dev/Training_workspace/CFS-101/tools/cFS-GroundSystem</code><br />
+<code>$ python GroundSystem.py</code>
+</p>
+</li>
+<li>
+<p>
+From the <a href="ground-disp1.html">cFS Ground System</a> page click on the <a href="ground-disp1.html">Start Command System</a> button to bring up the <a href="cmdgui-disp1.html">Command System Main Page</a>.
+</p>
+</li>
+</ol></div>
+<div class="sect4">
+<h5 id="_sending_code_ci_code_commands">Sending <code>CI</code> commands</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <a href="cmdgui-disp1.html">Command System Main Page</a> click the <a href="cmdgui-disp1.html">Display Page</a> button for the <span class="green">CI Commands</span> entry to bring up the <a href="ci-cmd-disp1.html">CI Commands (CPU1)</a> page.
+</p>
+</li>
+<li>
+<p>
+From there send the following commands, in the order listed, to <code>CI</code> by clicking their <a href="ci-cmd-disp1.html">Send</a> buttons:<br />
+<br />
+<span class="green">CI_NOOP_CC</span><br />
+<span class="green">CI_RESET_CC</span><br />
+<span class="green">CI_NOOP_CC</span><br />
+<br />
+You should see ground-system and flight-system output similar to <a href="ci-cmd-output.html">THIS</a>.<br />
+<br />
+The ground system outputs information about the command message content and the destination for every command sent. The flight system outputs acknowledgements from the applications upon receiving their commands.
+</p>
+</li>
+<li>
+<p>
+Close the <a href="ci-cmd-disp1.html">CI Commands (CPU1)</a> page.
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect4">
+<h5 id="_sending_code_to_code_commands">Sending <code>TO</code> commands</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <a href="cmdgui-disp1.html">Command System Main Page</a> click the <a href="cmdgui-disp1.html">Display Page</a> button for the <span class="green">TO Commands</span> entry to bring up the <a href="to-cmd-disp1.html">TO Commands (CPU1)</a> page.
+</p>
+</li>
+<li>
+<p>
+From there send the following commands, in the order listed, to <code>TO</code> by clicking their <a href="to-cmd-disp1.html">Send</a> buttons:<br />
+<br />
+<span class="green">TO_NOOP_CC</span><br />
+<span class="green">TO_RESET_CC</span><br />
+<span class="green">TO_NOOP_CC</span><br />
+<br />
+You should see ground-system and flight-system output similar to <a href="to-cmd-output.html">THIS</a>.<br />
+<br />
+The ground system outputs information about the command message content and the destination for every command sent. The flight system outputs acknowledgements from the applications upon receiving their commands.
+</p>
+</li>
+<li>
+<p>
+Don&#8217;t close the <a href="to-cmd-disp1.html">TO Commands (CPU1)</a> page just yet.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>Now let&#8217;s see the telemetry on the ground displays.</p></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_receiving_telemetry_from_the_initial_flight_system">3.6.2. Receiving telemetry from the initial flight system</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <a href="ground-disp2.html">cFS Ground System</a> display, click the <a href="ground-disp2.html">Start Telemetry System</a> button to bring up the <a href="tlmgui-disp1.html">Telemetry System Main Page</a>.<br />
+<br />
+You should expect to see no telemetry updating on the <a href="tlmgui-disp1.html">Telemetry System Main Page</a> at this point. This is because telemetry output from the flight system hasn&#8217;t been enabled yet.
+</p>
+</li>
+<li>
+<p>
+From the <a href="to-cmd-disp2.html">TO Commands (CPU1)</a> page click the <a href="to-cmd-disp2.html">Send</a> button for the <span class="green">TO_ENABLE_OUTPUT_CC</span> command to bring up its <a href="to-cmd-param-disp1.html">Parameter Dialog</a> display.
+</p>
+</li>
+<li>
+<p>
+From the <a href="to-cmd-param-disp1.html">Parameter Dialog</a> page enter "<span class="green">127.0.0.1</span>" in the input box for the <span class="green">cDestIp</span> parameter and "<span class="green">5011</span>" in the input box for the <span class="green">usDestPort</span> parameter. Then click the <a href="to-cmd-param-disp1.html">Send</a> button at the top of the display page.<br />
+<br />
+You should see ground-system and flight-system output similar to <a href="to-enable-cmd-output.html">THIS</a>.<br />
+<br />
+The ground system outputs information about the command message content and the destination for every command sent. The flight system outputs acknowledgements from the applications upon receiving their commands.
+</p>
+</li>
+<li>
+<p>
+Close the <a href="to-cmd-param-disp1.html">Parameter Dialog</a> page and the <a href="to-cmd-disp2.html">TO Commands (CPU1)</a> page.
+</p>
+</li>
+<li>
+<p>
+Now from the <a href="tlmgui-disp2.html">Telemetry System Main Page</a> you should expect to see telemetry relating to packet counts update periodically as the ground system receives telemetry from the flight system. So far only the telemetry from cFE core services are being received. Later on you will add more telemetry from the cFS applications when you go through the exercise for creating new cFS applications.
+</p>
+</li>
+<li>
+<p>
+When you are done inspecting the data clear out the desktop for the next section by closing all the Ground System displays and exit CFS running in the <span class="teal">FSW Terminal</span>.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_8217_s_next">3.7. What&#8217;s next?</h3>
+<div class="paragraph"><p>If you get to this point, CONGRATULATIONS!!! You&#8217;ve just built and run your first cFS-based system.<br />
+<br />
+Let&#8217;s take a short break before diving into the next section, where you will create new cFS applications that add more functionalities to the simple system you just built and ran.<br />
+<br />
+<br /></p></div>
+<hr />
+<div class="paragraph"><p><span class="image">
+<img src="images/coffee-break.jpg" alt="images/coffee-break.jpg" />
+</span></p></div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_developing_a_new_flight_system">4. Developing a New Flight System</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Now that you know how to build and run a cFS-based system, let&#8217;s enhance it to do more than the basics.  Then you can see how data is produced and published by one application, and subscribed and consumed by another application.</p></div>
+<div class="paragraph"><p>Let&#8217;s implement a cFS-based system that will:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Read from a temperature sensor
+</p>
+</li>
+<li>
+<p>
+Monitor the values (i.e., increasing/decreasing/not changing)
+</p>
+</li>
+<li>
+<p>
+Determine the value range (i.e., nominal/hot/cold)
+</p>
+</li>
+<li>
+<p>
+Set range limits on user command
+</p>
+</li>
+<li>
+<p>
+Set the temperature value on user command (i.e., update the temperature value)
+</p>
+</li>
+<li>
+<p>
+Set the delta value on user command (i.e., update the value used to compute the next temperature value)
+</p>
+</li>
+</ul></div>
+<div class="sect2">
+<h3 id="_new_flight_system_design">4.1. New flight system design</h3>
+<div class="paragraph"><p>This system will need the following CFS applications:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>sch</code> &#8594; to send scheduled messages to other applications
+</p>
+</li>
+<li>
+<p>
+<code>ci</code> &#8594; to receive user commands from the ground system
+</p>
+</li>
+<li>
+<p>
+<code>to</code> &#8594; to send out telemetry to the ground system
+</p>
+</li>
+<li>
+<p>
+<code>io_lib</code> &#8594; library used by <code>CI</code> and <code>TO</code>
+</p>
+</li>
+<li>
+<p>
+<code>temp_io</code> &#8594; to read and publish temperature data
+</p>
+</li>
+<li>
+<p>
+<code>temp_mon</code> &#8594; to monitor the temperature data by subscribing to and consuming <code>TEMP_IO</code>'s data
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Your initial system already has the first four covered. You now need to add two new applications, <code>TEMP_IO</code> and <code>TEMP_MON</code>.</p></div>
+<div class="sect3">
+<h4 id="_code_temp_io_code_application">4.1.1. <code>TEMP_IO</code> application</h4>
+<div class="paragraph"><p>This application is responsible for reading and publishing temperature data. Let&#8217;s schedule it to run at 1Hz. Its three-part data processing cycle is as follows:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Process the following commands, when received:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<span class="green">Wake-Up</span> and <span class="green">Send-Hk</span>
+</p>
+</li>
+<li>
+<p>
+<span class="green">No-Op</span> and <span class="green">Reset</span>
+</p>
+</li>
+<li>
+<p>
+<span class="green">Set-Current-Temp</span>
+</p>
+</li>
+<li>
+<p>
+<span class="green">Set-Delta-Value</span>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+Read data from a temperature sensor (simulated)
+</p>
+</li>
+<li>
+<p>
+Publish the new temperature value
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect3">
+<h4 id="_code_temp_mon_code_application">4.1.2. <code>TEMP_MON</code> application</h4>
+<div class="paragraph"><p>This application is responsible for monitoring temperature data, determining if the value is increasing/decreasing, and labeling it as nominal/hot/cold. Let&#8217;s also schedule it to run @ 1Hz. Its four-part data processing cycle is as follows:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Process the following commands, if received,
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<span class="green">Wake-Up</span> and <span class="green">Send-Hk</span>
+</p>
+</li>
+<li>
+<p>
+<span class="green">No-Op</span> and <span class="green">Reset</span>
+</p>
+</li>
+<li>
+<p>
+<span class="green">Set-Cold-Limit</span>
+</p>
+</li>
+<li>
+<p>
+<span class="green">Set-Hot-Limit</span>
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+Receive the new temperature value via data subscription
+</p>
+</li>
+<li>
+<p>
+Compare and determine:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Temperature change: increased/decreased/no change
+</p>
+</li>
+<li>
+<p>
+Temperate range: nominal/hot/cold
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+Publish the processed data
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_initial_creation_of_the_new_applications">4.2. Initial creation of the new applications</h3>
+<div class="paragraph"><p>The first step is to create new applications with minimal functionalities, then integrate them to the initial system and make sure they can be built and run before adding more features. Doing this incrementally can save you a lot of time if you need to isolate and debug a problem.</p></div>
+<div class="sect3">
+<h4 id="_creating_the_new_applications_from_a_script">4.2.1. Creating the new applications from a script</h4>
+<div class="paragraph"><p>You can always implement a cFS application from scratch. You can also start with a copy of an existing cFS application and modify it. Or you can use a script that comes with the cFE release to generate the initial code for your application that could be built and run as-is. Let&#8217;s use the script to save you some time.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Open a new terminal to create the applications (from here on it will be referred to as the <span class="teal">App Terminal</span>, where application code is created).
+</p>
+</li>
+<li>
+<p>
+Go to the <code>gen_app_code</code> directory and execute the following command to get information on its usage.<br />
+<br />
+<code>$ cd /home/dev/Training_workspace/CFS-101/tools/gen_app_code</code><br />
+<code>$ python gen_app_code.py</code>
+</p>
+<div class="paragraph"><p>You should see output like <a href="gen-app-code-usage-output.html">THIS</a>.</p></div>
+</li>
+<li>
+<p>
+Execute the following command to generate code for both <code>temp_io</code> and <code>temp_mon</code>:<br />
+<br />
+<code>$ python gen_app_code.py MISSION CFS-101 OWNER "Jane Smith" OUTDIR /home/dev/Training_workspace/CFS-101/apps APPS temp_io temp_mon</code>
+</p>
+<div class="paragraph"><p>You should see output similar to <a href="gen-app-code-output.html">THIS</a>.</p></div>
+</li>
+<li>
+<p>
+Go to the <code>apps</code> directory and verify that two new directories, <code>TEMP_IO</code> and <code>TEMP_MON</code>, were added:<br />
+<br />
+<code>$ cd /home/dev/Training_workspace/CFS-101/apps</code><br />
+<code>$ ls</code>
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>Feel free to take a look at the created directories and generated files at this point.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_updating_the_new_applications_generated_files">4.2.2. Updating the new applications' generated files</h4>
+<div class="paragraph"><p>You need to make some updates to the generated files since the script uses default values that should be unique across all apps:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">App Terminal</span> go to directory <code>/home/dev/Training_workspace/CFS-101/apps/temp_mon/fsw/platform_inc</code>.
+</p>
+</li>
+<li>
+<p>
+Open the file <code>temp_mon_msgids.h</code> and replace its MID values <a href="temp-mon-msgids-h.html">LIKE SO</a>.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>Now the MID values for both <code>TEMP_IO</code> and <code>TEMP_MON</code> are unique across the system.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_adding_code_cmake_code_file_for_the_new_applications">4.2.3. Adding <code>cmake</code> file for the new applications</h4>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content"><span class="black">The current version of the <code>gen_app_code.py</code> script does not generate build files for <code>cmake</code>, so for now you have to manually add it to the two new applications. This step will go away when the newer version of the script is distributed.</span></td>
+</tr></table>
+</div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Go to the <code>apps</code> directory and make a copy of <code>CMakeLists.txt</code> file from the <code>CI</code> directory:<br />
+<br />
+<code>$ cd /home/dev/Training_workspace/CFS-101/apps</code><br />
+<code>$ cp ./ci/CMakeLists.txt ./temp_io</code><br />
+<code>$ cp ./ci/CMakeLists.txt ./temp_mon</code>
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>./temp_io/CMakeLists.txt</code> <a href="temp-io-cmake.html">LIKE SO</a>.
+</p>
+</li>
+<li>
+<p>
+Similarly, edit <code>./temp_mon/CMakeLists.txt</code> <a href="temp-mon-cmake.html">LIKE SO</a>.
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect3">
+<h4 id="_adding_header_file_for_cfe_groundsystem_tool">4.2.4. Adding header file for cFE-GroundSystem tool</h4>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content"><span class="black">This section is only necessary if the cFE-GroundSystem tool is used to build your ground system.
+Since this training uses cFE-GroundSystem tool to build ground displays, this section is required until the tool is upgraded to handle parsing of multiple header files.</span></td>
+</tr></table>
+</div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">FSW Terminal</span>, go to directory <code>/home/dev/Training_workspace/CFS-101/apps/temp_io/fsw/src</code>.
+</p>
+</li>
+<li>
+<p>
+Create the file <code>temp_io_msg_for_grnd.h</code> by copying from <code>temp_io_msg.h</code>.<br />
+<br />
+<code>$ cp temp_io_msg.h temp_io_msg_for_grnd.h</code>
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>temp_io_msg_for_grnd.h</code> <a href="temp-io-msg-for-grnd-h1.html">LIKE THIS</a>.
+</p>
+</li>
+<li>
+<p>
+Go to directory <code>/home/dev/Training_workspace/CFS-101/apps/temp_mon/fsw/src</code>.
+</p>
+</li>
+<li>
+<p>
+Create the file <code>temp_mon_msg_for_grnd.h</code> by copying from <code>temp_mon_msg.h</code>:<br />
+<br />
+<code>$ cp temp_mon_msg.h temp_mon_msg_for_grnd.h</code>
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>temp_mon_msg_for_grnd.h</code> <a href="temp-mon-msg-for-grnd-h1.html">LIKE THIS</a>.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updating_code_to_code_s_subscription_table_and_code_sch_code_s_scheduling_table">4.3. Updating <code>TO</code>'s subscription table and <code>SCH</code>'s scheduling table</h3>
+<div class="sect3">
+<h4 id="_adding_new_data_subscriptions_to_code_to_code_for_downlink">4.3.1. Adding new data subscriptions to <code>TO</code> for downlink</h4>
+<div class="paragraph"><p><code>TO</code>'s main role is to send telemetry from the flight system. It uses a subscription table to track messages it needs to send. You need to add two subscription entries for <code>TEMP_IO</code> and <code>TEMP_MON</code> data messages to that table:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">App Terminal</span>, go to directory <code>/home/dev/Training_workspace/CFS-101/apps/to</code>.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>./fsw/tables/to_config.c</code> <a href="to-config-c.html">LIKE SO</a> to add <code>TEMP_IO</code> and <code>TEMP_MON</code> messages to <code>TO</code>'s subscription table.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>./CMakeLists.txt</code> <a href="to-cmake.html">LIKE THIS</a> to include paths to the <code>TEMP_IO</code> and <code>TEMP_MON</code> header files for <code>TO</code>'s build its table.
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect3">
+<h4 id="_scheduling_the_new_applications_with_code_sch_code">4.3.2. Scheduling the new applications with <code>SCH</code></h4>
+<div class="paragraph"><p>In order for the new applications to do any "work", <code>SCH</code> has to send <span class="green">Wake-Up</span> commands to them. Similarly, in order for the applications to send its telemetry, <code>SCH</code> has to send <span class="green">Send-Hk</span> commands to them. You need to add new scheduling entries for <code>TEMP_IO</code> and <code>TEMP_MON</code> to perform these commands.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">App Terminal</span>, go to directory <code>/home/dev/Training_workspace/CFS-101/apps/sch</code>.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>./fsw/tables/sch_def_msgtbl.c</code> <a href="sch-msgtbl-c.html">LIKE THIS</a> to add <code>TEMP_IO</code> and <code>TEMP_MON</code> messages to <code>SCH</code> message table.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>./fsw/tables/sch_def_schtbl.c</code> <a href="sch-schtbl-c.html">LIKE SO</a> to schedule <code>TEMP_IO</code> and <code>TEMP_MON</code> to run at 1Hz.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>./CMakeLists.txt</code> <a href="sch-cmake.html">LIKE THIS</a> to include paths to <code>TEMP_IO</code> and <code>TEMP_MON</code> header files for <code>SCH</code>'s build of its tables.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_building_the_new_flight_system">4.4. Building the new flight system</h3>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">FSW Terminal</span>, go to directory <code>/home/dev/Training_workspace/CFS-101</code>.
+</p>
+</li>
+<li>
+<p>
+Add <code>TEMP_IO</code> and <code>TEMP_MON</code> to the <code>cpu1</code> build by editing the file <code>./cfs101_defs/targets.cmake</code>, <a href="targets-cmake.html">LIKE SO</a>.
+</p>
+</li>
+<li>
+<p>
+Also add them to the startup script by editing the file <code>./cfs101_defs/cpu1_cfe_es_startup.scr</code>, <a href="cfe-es-startup.html">LIKE THIS</a>.
+</p>
+</li>
+<li>
+<p>
+Re-build the initial flight system with the following commands:<br />
+<br />
+<code>$ rm -rf build</code><br />
+<code>$ make</code><br />
+<code>$ make install</code>
+<br />
+Expect to see similar build output as the one in section titled <code><em>Building the initial system</em></code>, but with additional entries for <code>TEMP_IO</code> and <code>TEMP_MON</code>.<br />
+<br />
+See sample output for <a href="cmake-output2.html">make OUTPUT</a> and <a href="cmake-install-output2.html">make install OUTPUT</a>.
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_new_flight_system">4.5. Running the new flight system</h3>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">FSW Terminal</span>, go to the directory <code>/home/dev/Training_workspace/CFS-101/build/exe/cpu1</code>.
+</p>
+</li>
+<li>
+<p>
+Run the new system by executing the following command:<br />
+<br />
+<code>$ ./core-cpu1</code>
+</p>
+<div class="paragraph"><p>Expect to see similar run output as the one in section titled <code><em>Running the initial system</em></code>, but with additional entries relating to the <code>TEMP_IO</code> and <code>TEMP_MON</code> applications.<br />
+<br />
+<a href="run-output2.html">HERE</a> is a sample output. Can you find where <code>TEMP_IO</code> and <code>TEMP_MON</code> are loaded and then initialized?</p></div>
+</li>
+</ol></div>
+</div>
+<div class="sect2">
+<h3 id="_interacting_with_the_new_flight_system">4.6. Interacting with the new flight system</h3>
+<div class="paragraph"><p>First you need to add a few things to the ground system for the new applications.</p></div>
+<div class="sect3">
+<h4 id="_adding_ground_commands_for_the_new_applications">4.6.1. Adding ground commands for the new applications</h4>
+<div class="paragraph"><p>Adding commands for the new applications is quite simple with the <code>cFE-GroundSystem</code> tool.</p></div>
+<div class="sect4">
+<h5 id="_creating_code_temp_io_code_commands">Creating <code>TEMP_IO</code> commands</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">GSW Terminal</span>, go to directory <code>/home/dev/Training_workspace/CFS-101/tools/cFS-GroundSystem/Subsystems/cmdGui</code>.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>CHeaderParser-hdr-paths.txt</code> <a href="temp-io-headerparser-hdr-paths1.html">LIKE THIS</a>.
+</p>
+</li>
+<li>
+<p>
+Execute the following command to generate the command file for <code>TEMP_IO</code>:<br />
+<br />
+<code>$ python CHeaderParser.py</code>
+</p>
+</li>
+<li>
+<p>
+Enter the text highlighted in green <a href="temp-io-msg-parsing-input1.html">LIKE SO</a>.
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect4">
+<h5 id="_creating_code_temp_mon_code_commands">Creating <code>TEMP_MON</code> commands</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the same directory, <code>cmdGui</code>, re-edit the file <code>CHeaderParser-hdr-paths.txt</code> <a href="temp-mon-headerparser-hdr-paths1.html">LIKE SO</a>.
+</p>
+</li>
+<li>
+<p>
+Re-execute the script:<br />
+<br />
+<code>$ python CHeaderParser.py</code>
+</p>
+</li>
+<li>
+<p>
+Enter the text highlighted in green <a href="temp-mon-msg-parsing-input1.html">LIKE SO</a>.
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect4">
+<h5 id="_adding_new_applications_to_the_command_pages">Adding new applications to the command pages</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the same directory, add the new command files to the command pages by editing the file <code>command-pages.txt</code> <a href="command-pages.html">LIKE THIS</a>.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sending_commands_to_the_new_flight_system">4.6.2. Sending commands to the new flight system</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">FSW Terminal</span>, exit and re-run the cFS executable, <code>core-cpu1</code>.
+</p>
+</li>
+<li>
+<p>
+Close out all the Ground System displays from the desktop.
+</p>
+</li>
+<li>
+<p>
+From the <span class="teal">GSW Terminal</span>, re-start the Ground System displays by executing the following commands:<br />
+<br />
+<code>$ cd /home/dev/Training_workspace/CFS-101/tools/cFS-GroundSystem</code><br />
+<code>$ python GroundSystem.py</code>
+</p>
+</li>
+<li>
+<p>
+From the <a href="ground-disp1.html">cFS Ground System</a> page, click on the <a href="ground-disp1.html">Start Command System</a> button to bring up the <a href="cmdgui-disp2.html">Command System Main Page</a>.
+</p>
+</li>
+</ol></div>
+<div class="sect4">
+<h5 id="_sending_code_temp_io_code_commands">Sending <code>TEMP_IO</code> commands</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <a href="cmdgui-disp2.html">Command System Main Page</a>, click the <a href="cmdgui-disp2.html">Display Page</a> button for the <span class="green">TEMP_IO Cmds (CPU1)</span> entry to bring up <code>TEMP_IO</code> <a href="temp-io-cmd-disp1.html">command page</a>.
+</p>
+</li>
+<li>
+<p>
+From there, send the following commands, in the order listed, to <code>TEMP_IO</code> by clicking the <a href="temp-io-cmd-disp1.html">Send</a> buttons:<br />
+<br />
+<span class="green">TEMP_IO_NOOP_CC</span><br />
+<span class="green">TEMP_IO_RESET_CC</span><br />
+<span class="green">TEMP_IO_NOOP_CC</span><br />
+<br />
+You should see ground-system and flight-system output similar to <a href="temp-io-cmd-output1.html">THIS</a>.<br />
+<br />
+The ground system outputs information about the command message content and the destination for every command sent. The flight system outputs acknowledgements from the applications upon receiving their commands.
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect4">
+<h5 id="_sending_code_temp_mon_code_commands">Sending <code>TEMP_MON</code> commands</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <a href="cmdgui-disp2.html">Command System Main Page</a> click the <a href="cmdgui-disp2.html">Display Page</a> button for the <span class="green">TEMP_MON Cmds (CPU1)</span> entry to bring up the <code>TEMP_MON</code> <a href="temp-mon-cmd-disp1.html">command page</a>.
+</p>
+</li>
+<li>
+<p>
+From there, send the following commands, in the order listed, to <code>TEMP_MON</code> by clicking the <a href="temp-mon-cmd-disp1.html">Send</a> buttons:<br />
+<br />
+<span class="green">TEMP_MON_NOOP_CC</span><br />
+<span class="green">TEMP_MON_RESET_CC</span><br />
+<span class="green">TEMP_MON_NOOP_CC</span><br />
+<br />
+You should see ground-system and flight-system output similar to <a href="temp-mon-cmd-output1.html">THIS</a>.<br />
+<br />
+The ground system outputs information about the command message content and the destination for every command sent. The flight system outputs acknowledgements from the applications upon receiving their commands.
+</p>
+</li>
+<li>
+<p>
+Close all of the Ground System displays.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_adding_telemetry_from_the_new_applications_to_ground_system">4.6.3. Adding telemetry from the new applications to ground system</h4>
+<div class="paragraph"><p>Like adding commands, adding telemetry for the new applications is quite simple with the <code>cFS-GroundSystem</code> tool.</p></div>
+<div class="sect4">
+<h5 id="_creating_code_temp_io_code_telemetry">Creating <code>TEMP_IO</code> telemetry</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">GSW Terminal</span> go to directory <code>/home/dev/Training_workspace/CFS-101/tools/cFS-GroundSystem/Subsystems/tlmGUI</code>.
+</p>
+</li>
+<li>
+<p>
+Create a new file called <code>cfs-temp-io-hk-tlm.txt</code> and edit it <a href="temp-io-hk-tlm.html">LIKE THIS</a>.
+</p>
+</li>
+<li>
+<p>
+<code>cfs-temp-io-hk-tlm.txt</code> mirrors the definition of <code><span class="green">TEMP_IO_HkTlm_t</span></code> defined in <code>/home/dev/Training_workspace/CFS-101/apps/temp_io/fsw/src/temp_io_msg_for_grnd.h</code>.
+</p>
+</li>
+<li>
+<p>
+Save and close the file.
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect4">
+<h5 id="_creating_code_temp_mon_code_telemetry">Creating <code>TEMP_MON</code> telemetry</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Similarly, create a new file called <code>cfs-temp-mon-hk-tlm.txt</code> and edit it <a href="temp-mon-hk-tlm1.html">LIKE THIS</a>.
+</p>
+</li>
+<li>
+<p>
+<code>cfs-temp-mon-hk-tlm.txt</code> mirrors the definition of <span class="green">TEMP_MON_HkTlm_t</span> defined in <code>/home/dev/Training_workspace/CFS-101/apps/temp_mon/fsw/src/temp_mon_msg_for_grnd.h</code>.
+</p>
+</li>
+<li>
+<p>
+Save and close the file.
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect4">
+<h5 id="_adding_new_applications_to_the_telemetry_pages">Adding new applications to the telemetry pages</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Add the new telemetry files to the telemetry pages by editing the file <code>telemetry-pages.txt</code> <a href="telemetry-pages.html">LIKE SO</a>.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_receiving_telemetry_from_the_new_flight_system">4.6.4. Receiving telemetry from the new flight system</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Start up the Ground System displays again from the directory <code>/home/dev/Training_workspace/CFS-101/tools/cFS-GroundSystem</code>:<br />
+<br />
+<code>$ python GroundSystem.py</code>
+</p>
+</li>
+<li>
+<p>
+From the <a href="ground-disp2.html">cFS Ground System</a> display click the <a href="ground-disp2.html">Start Telemetry System</a> button to bring up the <a href="tlmgui-disp3.html">Telemetry System Main Page</a>.<br />
+<br />
+You should expect to see no telemetry updating in the <a href="tlmgui-disp3.html">Telemetry System Main Page</a> at this point. This is because telemetry output from the flight system hasn&#8217;t been enabled yet.
+</p>
+</li>
+<li>
+<p>
+In the <a href="cmdgui-disp3.html">Command System Main Page</a> click the <a href="cmdgui-disp3.html">Display Page</a> button for the <span class="green">TO Commands (CPU1)</span> entry to open the <a href="to-cmd-disp2.html">TO Commands (CPU1)</a> page.
+</p>
+</li>
+<li>
+<p>
+From there, click the <a href="to-cmd-disp2.html">Send</a> button for the <span class="green">TO_ENABLE_OUTPUT_CC</span> command to bring up its <a href="to-cmd-param-disp1.html">Parameter Dialog</a> display.
+</p>
+</li>
+<li>
+<p>
+Enter "<span class="green">127.0.0.1</span>" in the input box for the <span class="green">cDestIp</span> parameter and "<span class="green">5011</span>" in the input box for the <span class="green">usDestPort</span> parameter. Then click the <a href="to-cmd-param-disp1.html">Send</a> button at the top of the display page.<br />
+<br />
+You should see ground-system and flight-system output similar to <a href="to-enable-cmd-output.html">THIS</a>.<br />
+<br />
+The ground system outputs information about the command message content and the destination for every command sent. The flight system outputs acknowledgements from the applications upon receiving their commands.
+</p>
+</li>
+<li>
+<p>
+Now from the <a href="tlmgui-disp4.html">Telemetry System Main Page</a> you should expect to see telemetry updates periodically as the ground system receives telemetry from the flight system.
+</p>
+</li>
+</ol></div>
+<div class="sect4">
+<h5 id="_checking_out_application_specific_telemetry">Checking out application-specific telemetry</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Close the <span class="green">Telemetry System Main Page</span>.
+</p>
+</li>
+<li>
+<p>
+From the <a href="ground-disp3.html">cFS Ground System</a> display select "<span class="green">127.0.0.1</span>" from the <span class="green">Selected IP Address</span> pull-down menu at the top of the display.
+</p>
+</li>
+<li>
+<p>
+Click the <a href="ground-disp4.html">Start Telemetry System</a> button to re-open the <a href="tlmgui-disp4.html">Telemetry System Main Page</a>.
+</p>
+</li>
+<li>
+<p>
+Click on the <a href="tlmgui-disp5.html">Display Page</a> button for the <span class="green">Temp Monitor</span> entry to bring up <a href="temp-mon-tlm-disp1.html">Temp Monitor</a> telemetry page.
+</p>
+</li>
+<li>
+<p>
+From the <a href="cmdgui-disp2.html">Command System Main Page</a> bring up <a href="temp-mon-cmd-disp1.html">TEMP_MON Cmds (CPU1)</a> and send a few <span class="green">TEMP_MON_NOOP_CC</span> commands.<br />
+<br />
+ You should expect to see its <a href="temp-mon-tlm-disp2.html">Command Counter</a> value increased by the number of commands you just sent.<br />
+<br />
+If you send a <span class="green">TEMP_MON_RESET_CC</span> command, all counter values will be reset to 0.
+</p>
+</li>
+<li>
+<p>
+You can apply steps 4 and 5 on <code>TEMP_IO</code> if you want to see its telemetry updated.
+</p>
+</li>
+<li>
+<p>
+At this point feel free to play with the system. When you are done, clear out the desktop for the next section by closing all the Ground System displays and exit the cFS running in the <span class="teal">FSW Terminal</span>.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_8217_s_next_2">4.7. What&#8217;s next?</h3>
+<div class="paragraph"><p>If you get to this point, CONGRATULATIONS AGAIN!!! You&#8217;ve just added new applications to your initial cFS-based system.<br /></p></div>
+<div class="paragraph"><p>By now you have seen how cFS applications are created and integrated into the system. If you take a closer look at the application&#8217;s generated code, there are "TO-DO" comments that should guide you where you can add code to enhance your application. There is also a generated <code>ReadMe.txt</code> file in the <code>src</code> directory of the application that describes how a cFS application works.</p></div>
+<div class="paragraph"><p>You can stop here and venture out on your own at this point. However, if you want to see in details how to enhance an application, you should continue with the tutorial. In the next section, you will add more functions to the <code>TEMP_IO</code> and <code>TEMP_MON</code> applications.</p></div>
+<div class="paragraph"><p>Take another coffee break before diving into it. You deserve it!<br />
+<br />
+<br /></p></div>
+<hr />
+<div class="paragraph"><p><span class="image">
+<img src="images/coffee-break.jpg" alt="images/coffee-break.jpg" />
+</span></p></div>
+<hr />
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_making_enhancements_to_the_new_flight_system">5. Making Enhancements to the New Flight System</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Now that you successfully integrated the two new applications, <code>TEMP_IO</code> and <code>TEMP_MON</code>, to the cFS-based system, you can now focus on just the code that needs to be added to the new applications to cover the rest of the system&#8217;s functionalities.</p></div>
+<div class="sect2">
+<h3 id="_modifying_code_temp_io_code">5.1. Modifying <code>TEMP_IO</code></h3>
+<div class="paragraph"><p>Let&#8217;s summarize <code>TEMP_IO</code>'s functions again:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+It can process the following commands:
+</p>
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+<span class="green">Wake-Up</span> and <span class="green">Send-Hk</span>
+</p>
+</li>
+<li>
+<p>
+<span class="green">No-Op</span> and <span class="green">Reset</span>
+</p>
+</li>
+<li>
+<p>
+<span class="green">Set-Current-Temp</span>
+</p>
+</li>
+<li>
+<p>
+<span class="green">Set-Delta-Value</span>
+</p>
+</li>
+</ol></div>
+</li>
+<li>
+<p>
+It reads data from a temperature sensor (simulated)
+</p>
+</li>
+<li>
+<p>
+It publishes the new temperature
+</p>
+</li>
+<li>
+<p>
+It runs at 1Hz
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>The initial application code, generated by the script in the previous section, takes care of items 1a and 1b. Item 4 is also done when you add a <span class="green">Wake-Up</span> command entry to the <code>SCH</code>'s scheduling table. Item 2 will be a simulated sensor read by adding the current temperature value to a settable delta value.</p></div>
+<div class="paragraph"><p>You need to add more code to cover the rest of the functions, starting with additional commands.</p></div>
+<div class="sect3">
+<h4 id="_adding_more_commands">5.1.1. Adding more commands</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">App Terminal</span>, go to directory <code>/home/dev/Training_workspace/CFS-101/apps/temp_io/fsw/src</code>.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>temp_io_msg.h</code> <a href="temp-io-msg-h.html">LIKE SO</a> to add command codes for the new command messages.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>temp_io_private_types.h</code> <a href="temp-io-private-types-h1.html">LIKE SO</a> to add data structures for the new command messages.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>temp_io_app.h</code> <a href="temp-io-app-h.html">LIKE THIS</a> to define some local variables to be used for generating simulated sensor data.
+</p>
+</li>
+<li>
+<p>
+Edit the function <span class="green">TEMP_IO_ProcessNewAppCmds()</span> in the source file <code>temp_io_app.c</code> <a href="temp-io-processnewappcmds-c.html">LIKE THIS</a> to handle command responses.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>As you can see from the modified code, <span class="green">TEMP_IO_SET_CURRENT_TEMP_CC</span> command will set the current temperature value to the commanded value. Similarly, <span class="green">TEMP_IO_SET_DELTA_VALUE_CC</span> command will set the current delta value to the commanded value.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_reading_data">5.1.2. Reading data</h4>
+<div class="paragraph"><p>To simulate sensor data read, <code>TEMP_IO</code> generates the new temperature value by adding the current temperature value to the current delta value.<br /></p></div>
+<div class="paragraph"><p>This is done at the beginning of every <span class="green">Wakeup</span> cycle for <code>TEMP_IO</code>, which is currently at 1Hz.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Edit the following functions in the file <code>temp_io_app.c</code> <a href="temp-io-processnewdata-c.html">LIKE SO</a>:
+</p>
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+<span class="green">TEMP_IO_InitData()</span> to initialize local variables
+</p>
+</li>
+<li>
+<p>
+<span class="green">TEMP_IO_ProcessNewData()</span> to compute simulated sensor values
+</p>
+</li>
+</ol></div>
+</li>
+</ol></div>
+</div>
+<div class="sect3">
+<h4 id="_publishing_data">5.1.3. Publishing data</h4>
+<div class="paragraph"><p>To publish temperature data for other apps to consume, you need to modify <code>TEMP_IO</code>'s code as follows.<br /></p></div>
+<div class="paragraph"><p>This is done at the end of every <span class="green">Wakeup</span> cycle for <code>TEMP_IO</code>.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Edit the file <code>temp_io_private_types.h</code> <a href="temp-io-private-types-h2.html">LIKE THIS</a> to add data for publication using the <span class="green">TEMP_IO_OutData_t</span> data structure.
+</p>
+</li>
+<li>
+<p>
+Edit the function <span class="green">TEMP_IO_SendOutData()</span> in the source file <code>temp_io_app.c</code> <a href="temp-io-sendoutdata-c.html">LIKE THIS</a> to publish the data.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modifying_code_temp_mon_code">5.2. Modifying <code>TEMP_MON</code></h3>
+<div class="paragraph"><p>Let&#8217;s summarize <code>TEMP_MON</code>'s functions again:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+It can process the following commands:
+</p>
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+<span class="green">Wake-Up</span> and <span class="green">Send-Hk</span>
+</p>
+</li>
+<li>
+<p>
+<span class="green">No-Op</span> and <span class="green">Reset</span>
+</p>
+</li>
+<li>
+<p>
+<span class="green">Set-Cold-Limit</span>
+</p>
+</li>
+<li>
+<p>
+<span class="green">Set-Hot-Limit</span>
+</p>
+</li>
+</ol></div>
+</li>
+<li>
+<p>
+It gets the new temperature value and saves the current value as the old value
+</p>
+</li>
+<li>
+<p>
+It compares and determines if the value has increased/decreased, compares and determines which range, nominal/hot/cold, the value falls in
+</p>
+</li>
+<li>
+<p>
+It publishes temperature direction and range
+</p>
+</li>
+<li>
+<p>
+It runs at 1Hz
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>The initial application code, generated by the script in the previous section, takes care of items 1a and 1b. Item 5 is also done when you add a <span class="green">Wake-Up</span> command entry to the <code>SCH</code>'s scheduling table.</p></div>
+<div class="paragraph"><p>You need to add more code to cover the rest of the functions, starting with additional commands.</p></div>
+<div class="sect3">
+<h4 id="_adding_more_commands_2">5.2.1. Adding more commands</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">App Terminal</span>, go to directory <code>/home/dev/Training_workspace/CFS-101/apps/temp_mon/fsw/src</code>.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>temp_mon_msg.h</code> <a href="temp-mon-msg-h1.html">LIKE SO</a> to add command codes for the new command messages.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>temp_mon_private_types.h</code> <a href="temp-mon-private-types-h.html">LIKE SO</a> to add data structures for the new command messages.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>temp_mon_app.h</code> <a href="temp-mon-app-h.html">LIKE SO</a> to declare variables used to track data.
+</p>
+</li>
+<li>
+<p>
+Edit the function <span class="green">TEMP_MON_ProcessNewAppCmds()</span> in the source file <code>temp_mon_app.c</code> <a href="temp-mon-processnewappcmds-c.html">LIKE THIS</a> to handle command responses.
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect3">
+<h4 id="_computing_data">5.2.2. Computing data</h4>
+<div class="paragraph"><p>To determine temperature direction and range, <code>TEMP_MON</code> looks at the previous and current temperatures as well as the temperature limits.<br /></p></div>
+<div class="paragraph"><p>This is done at the beginning of every <span class="green">Wakeup</span> cycle for <code>TEMP_MON</code>, which is currently at 1Hz.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Edit the file, <code>temp_mon_msg.h</code>, <a href="temp-mon-msg-h2.html">LIKE THIS</a> to define some macro constants used in determining range and direction.
+</p>
+</li>
+<li>
+<p>
+Edit the following functions in the file <code>temp_mon_app.c</code> <a href="temp-mon-processnewdata-c.html">LIKE SO</a>:
+</p>
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+Include header files, <code>temp_io_msgids.h</code> and <code>temp_io_private_types.h</code>
+</p>
+</li>
+<li>
+<p>
+<span class="green">TEMP_MON_InitData()</span> to initialize the local variables
+</p>
+</li>
+<li>
+<p>
+<span class="green">TEMP_MON_InitPipe()</span> to subscribe to <code>TEMP_IO</code> data
+</p>
+</li>
+<li>
+<p>
+<span class="green">TEMP_MON_ProcessNewData()</span> to determine temperature range and direction
+</p>
+</li>
+</ol></div>
+</li>
+</ol></div>
+</div>
+<div class="sect3">
+<h4 id="_publishing_data_2">5.2.3. Publishing data</h4>
+<div class="paragraph"><p>To publish data for downlink to the ground system, you need to modify <code>TEMP_MON</code>'s code as follows.<br /></p></div>
+<div class="paragraph"><p>This is done when <code>TEMP_MON</code> receives a <span class="green">TEMP_MON_SEND_HK_MID</span> command message from the <code>SCH</code>.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Edit the file <code>temp_mon_msg.h</code> <a href="temp-mon-msg-h3.html">LIKE THIS</a> to add data for publication using the <span class="green">TEMP_MON_HkTlm_t</span> data structure.
+</p>
+</li>
+<li>
+<p>
+Edit the function <span class="green">TEMP_MON_ReportHousekeeping()</span> in the source file <code>temp_mon_app.c</code> <a href="temp-mon-reporthousekeeping-c.html">LIKE THIS</a> to publish the data.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_building_the_enhanced_flight_system">5.3. Building the enhanced flight system</h3>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">FSW Terminal</span>, go to directory <code>/home/dev/Training_workspace/CFS-101</code>.
+</p>
+</li>
+<li>
+<p>
+Execute the following commands:<br />
+<br />
+<code>$ rm -rf build</code><br />
+<code>$ make</code><br />
+<code>$ make install</code>
+</p>
+<div class="paragraph"><p>Expect to see similar output like <a href="cmake-output2.html">THIS</a> and <a href="cmake-install-output2.html">THIS</a>.</p></div>
+</li>
+</ol></div>
+</div>
+<div class="sect2">
+<h3 id="_running_the_enhanced_flight_system">5.4. Running the enhanced flight system</h3>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">FSW Terminal</span> go to directory <code>/home/dev/Training_workspace/CFS-101/build/exe/cpu1</code>.
+</p>
+</li>
+<li>
+<p>
+Execute the following command:<br />
+<br />
+<code>$ ./core-cpu1</code>
+</p>
+<div class="paragraph"><p>Expect to see similar output to <a href="run-output2.html">THIS</a>. Can you spot what else is being output from your <span class="teal">FSW Terminal</span>?</p></div>
+</li>
+</ol></div>
+</div>
+<div class="sect2">
+<h3 id="_interacting_with_the_enhanced_flight_system">5.5. Interacting with the enhanced flight system</h3>
+<div class="sect3">
+<h4 id="_adding_more_ground_commands">5.5.1. Adding more ground commands</h4>
+<div class="paragraph"><p>You need to add the new ground commands for <code>TEMP_IO</code> and <code>TEMP_MON</code> applications.</p></div>
+<div class="sect4">
+<h5 id="_creating_new_code_temp_io_code_commands">Creating new <code>TEMP_IO</code> commands</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">FSW Terminal</span> go to directory <code>/home/dev/Training_workspace/CFS-101/apps/temp_io/fsw/src</code>.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>temp_io_msg_for_grnd.h</code> <a href="temp-io-msg-for-grnd-h2.html">LIKE SO</a>.
+</p>
+</li>
+<li>
+<p>
+From the <span class="teal">GSW Terminal</span> go to directory <code>/home/dev/Training_workspace/CFS-101/tools/cFS-GroundSystem/Subsystems/cmdGui</code>.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>CHeaderParser-hdr-paths.txt</code> <a href="temp-io-headerparser-hdr-paths2.html">LIKE THIS</a>.
+</p>
+</li>
+<li>
+<p>
+Execute the following command to generate the new command file for <code>TEMP_IO</code>:<br />
+<br />
+<code>$ python CHeaderParser.py</code>
+</p>
+</li>
+<li>
+<p>
+Enter the input, highlighted in green, <a href="temp-io-msg-parsing-input2.html">LIKE SO</a>.
+</p>
+</li>
+</ol></div>
+</div>
+<div class="sect4">
+<h5 id="_creating_new_code_temp_mon_code_commands">Creating new <code>TEMP_MON</code> commands</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <span class="teal">FSW Terminal</span> go to directory <code>/home/dev/Training_workspace/CFS-101/apps/temp_mon/fsw/src</code>.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>temp_mon_msg_for_grnd.h</code> <a href="temp-mon-msg-for-grnd-h2.html">LIKE SO</a>.
+</p>
+</li>
+<li>
+<p>
+From the <span class="teal">GSW Terminal</span> go to directory <code>/home/dev/Training_workspace/CFS-101/tools/cFS-GroundSystem/Subsystems/cmdGui</code>.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>CHeaderParser-hdr-paths.txt</code> <a href="temp-mon-headerparser-hdr-paths2.html">LIKE THIS</a>.
+</p>
+</li>
+<li>
+<p>
+Execute the following command to generate the new command file for <code>TEMP_MON</code>:<br />
+<br />
+<code>$ python CHeaderParser.py</code>
+</p>
+</li>
+<li>
+<p>
+Enter the input, highlighted in green, <a href="temp-mon-msg-parsing-input2.html">LIKE SO</a>.
+</p>
+</li>
+</ol></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sending_commands_to_the_enhanced_flight_system">5.5.2. Sending commands to the enhanced flight system</h4>
+<div class="paragraph"><p>Now see if you can send new commands to the modified system and get data feedbacks. The steps are exactly like those in the section <code><em>Sending commands to the new flight system</em></code>.</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Changes in <code>TEMP_IO</code> command displays:
+</p>
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+<a href="temp-io-cmd-disp2.html">TEMP_IO Cmds (CPU1)</a> page has additional commands
+</p>
+</li>
+<li>
+<p>
+<a href="temp-io-cmd-param-disp1.html">Parameter Dialog</a> for <span class="green">TEMP_IO_SET_CURRENT_TEMP_CC</span> command is new
+</p>
+</li>
+<li>
+<p>
+<a href="temp-io-cmd-param-disp2.html">Parameter Dialog</a> for <span class="green">TEMP_IO_SET_DELTA_VALUE_CC</span> command is new
+</p>
+</li>
+</ol></div>
+</li>
+<li>
+<p>
+Changes in <code>TEMP_MON</code> command displays
+</p>
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+<a href="temp-mon-cmd-disp2.html">TEMP_MON Cmds (CPU1)</a> page has additional commands
+</p>
+</li>
+<li>
+<p>
+<a href="temp-mon-cmd-param-disp1.html">Parameter Dialog</a> for <span class="green">TEMP_MON_SET_COLD_LIMIT_CC</span> is new
+</p>
+</li>
+<li>
+<p>
+<a href="temp-mon-cmd-param-disp2.html">Parameter Dialog</a> for <span class="green">TEMP_MON_SET_HOT_LIMIT_CC</span> is new
+</p>
+</li>
+</ol></div>
+</li>
+<li>
+<p>
+Now send some of the new commands to the enhanced flight system.<br />
+<br />
+ From the <a href="temp-io-cmd-disp2.html">TEMP_IO Cmds (CPU1)</a> page:
+</p>
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+Send the <span class="green">TEMP_IO_SET_CURRENT_TEMP_CC</span> command to set the current temperature to <span class="green">101</span>
+</p>
+</li>
+<li>
+<p>
+Send the <span class="green">TEMP_IO_SET_DELTA_VALUE_CC</span> command to set the delta value to <span class="green">10</span>
+<br />
+<br />
+ When you set the current temperature expect to see from the FSW output that the emperature value has jumped to the set value before it continues to increase by 1 again. Then, when you set the delta value, temperature value should be increasing by the newly set delta value.
+</p>
+</li>
+</ol></div>
+</li>
+<li>
+<p>
+And from the <a href="temp-mon-cmd-disp2.html">TEMP_MON Cmds (CPU1)</a> page:
+</p>
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+Send the <span class="green">TEMP_MON_SET_COLD_LIMIT_CC</span> command to set cold limit at <span class="green">-10</span>
+</p>
+</li>
+<li>
+<p>
+Send the <span class="green">TEMP_MON_SET_HOT_LIMIT_CC</span> command to set hot limit at <span class="green">200</span>
+</p>
+</li>
+</ol></div>
+</li>
+</ol></div>
+<div class="paragraph"><p>You should see output similar to <a href="temp-io-cmd-output2.html">THIS</a>
+and <a href="temp-mon-cmd-output2.html">THIS</a>.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_receiving_telemetry_from_the_enhanced_flight_system">5.5.3. Receiving telemetry from the enhanced flight system</h4>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+Go to directory <code>/home/dev/Training_workspace/CFS-101/tools/cFS-GroundSystem/Subsystems/tlmGUI</code>.
+</p>
+</li>
+<li>
+<p>
+Edit the file <code>cfs-temp-mon-hk-tlm.txt</code> <a href="temp-mon-hk-tlm2.html">LIKE THIS</a> to describe temperature data being downlinked.
+</p>
+</li>
+<li>
+<p>
+Send the <span class="green">TO_ENABLE_OUTPUT_CC</span> command to <code>TO</code> to enable telemetry output (see <code><em>Receiving telemetry from the new flight system</em></code>).
+</p>
+</li>
+</ol></div>
+<div class="sect4">
+<h5 id="_checking_out_application_specific_telemetry_2">Checking out application-specific telemetry</h5>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+From the <a href="ground-disp3.html">cFS Ground System</a> display select <span class="green">127.0.0.1</span> from the <span class="green">Selected IP Address</span> pull-down menu at the top of the display.
+</p>
+</li>
+<li>
+<p>
+Click the <a href="ground-disp4.html">Start Telemetry System</a> button to bring up the <a href="tlmgui-disp4.html">Telemetry System Main Page</a>.
+</p>
+</li>
+<li>
+<p>
+From there, click on the <a href="tlmgui-disp5.html">Display Page</a> button for the <span class="green">Temp Monitor</span> entry to bring up the <a href="temp-mon-tlm-disp3.html">Temp Monitor</a> telemetry page.
+</p>
+</li>
+<li>
+<p>
+Now send <code>TEMP_IO</code> and <code>TEMP_MON</code> commands to the flight system and watch <code>TEMP_MON</code>'s telemetry get updated.
+</p>
+<div class="olist loweralpha"><ol class="loweralpha">
+<li>
+<p>
+Send the <span class="green">TEMP_IO_SET_CURRENT_TEMP_CC</span> command to reset the current  temperature value.
+</p>
+</li>
+<li>
+<p>
+Send the <span class="green">TEMP_IO_SET_DELTA_VALUE_CC</span> command to change the update rate of the current temperature. If the delta value goes from positive to negative, or vice versa, the temperature direction should eventually change as well.
+</p>
+</li>
+<li>
+<p>
+Send the <span class="green">TEMP_MON_SET_COLD_LIMIT_CC</span> command to change the cold threshold value. When the current temperature is less than the cold threshold value, the temperature range should change.
+</p>
+</li>
+<li>
+<p>
+Send the <span class="green">TEMP_MON_SET_HOT_LIMIT_CC</span> command to change the hot threshold value. When the current temperature is greater than the hot threshold value, the temperature range should change.
+</p>
+</li>
+</ol></div>
+</li>
+</ol></div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_8217_s_next_3">5.6. What&#8217;s next?</h3>
+<div class="paragraph"><p>The primary objective of this training is to give you a feel for how new capabilities can be quickly and easily added to the system just by using the cFE framework, its applications, and tools. Hopefully this training has achieved that. :-)</p></div>
+<div class="paragraph"><p>There are many things you can do from this point on. You can expand the system further by either adding more functionality to the existing applications or add new applications. How about reconfiguring some of the existing applications? For example, <code>SCH</code> application is running at 100Hz by default. Try to configure it to run at 40Hz instead. Which header and/or source files do you have to modified? While you&#8217;re at it, look at the detailed design document and user&#8217;s guide for the <code>SCH</code> application. These should be at <code>/home/dev/Training_workspace/CFS-101/apps/sch/docs</code>.</p></div>
+<div class="paragraph"><p>If you&#8217;re interested in learning more about the cFE framework itself, take a look at <code>/home/dev/Training_workspace/CFS-101/cfe/docs</code>.</p></div>
+<div class="paragraph"><p>You might also be interested in the <a href="qnas.html">Questions &amp; Answers</a> section as well.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_end">6. The End?</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Thank you for your interest and happy coding!!!<br />
+<br />
+<br /></p></div>
+<div class="paragraph"><p><span class="image">
+<img src="images/graduation-cap.jpg" alt="images/graduation-cap.jpg" />
+</span></p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_questions_amp_answers">7. Questions &amp; Answers</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Click <a href="qnas.html">HERE</a> for answers to some common cFS questions.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2019-01-30 15:09:49 CST
+</div>
+</div>
+</body>
+</html>
